@@ -42,6 +42,21 @@
             border-radius: 5px;
             background-color: #4CAF50; /* green */
         }
+        /* Media query for mobile devices */
+        @media only screen and (max-width: 600px) {
+            .page1 {
+                background-size: contain; /* Adjust background size for mobile */
+            }
+            h1 {
+                font-size: 2em; /* Reduce font size for mobile */
+                margin-left: 0; /* Center heading for mobile */
+                text-align: center;
+            }
+            .button {
+                font-size: 1em; /* Reduce button font size for mobile */
+                padding: 10px 20px;
+            }
+        }
     </style>
 </head>
 <body>
