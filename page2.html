@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Are You Sure?</title>
+    <style>
+        @font-face {
+            font-family: 'SmirkyPrint';
+            src: url('file:///C:/Users/Ujjwal%20Anand/Downloads/smirky-1852479/Smirky%20Print.ttf') format('truetype');
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'SmirkyPrint', sans-serif; /* Use Smirky Print font */
+        }
+        .page2 {
+            background-color: #FFD1DC; /* pastel pink */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            position: relative;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+        }
+        h1 {
+            font-size: 4em;
+            color: white;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Black outline */
+            margin: 0 20px; /* Add some space between the text and the images */
+        }
+        .button {
+            color: white;
+            padding: 15px 30px;
+            margin: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1.5em;
+            border-radius: 5px;
+            background-color: #FF6347; /* red */
+        }
+        .cat-image-left {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 450px; /* Enlarge the image */
+            height: auto;
+        }
+        .cat-image-right {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 450px; /* Enlarge the image */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="page2">
+        <img src="file:///C:/Users/Ujjwal%20Anand/Downloads/left%20side%20bada%20aankh%20billa.jpg" alt="Image" class="cat-image-left">
+        <div class="header">
+            <h1>ARE YOU SURE?</h1>
+        </div>
+        <img src="file:///C:/Users/Ujjwal%20Anand/Downloads/WhatsApp%20Image%202025-01-23%20at%2021.23.33_be9ac67c.jpg" alt="Image" class="cat-image-right">
+        <a href="page3.html" class="button">yes</a>
+        <a href="page3.html" class="button">no</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Surprise!</title>
+    <style>
+        @font-face {
+            font-family: 'SmirkyPrint';
+            src: url('file:///C:/Users/Ujjwal%20Anand/Downloads/smirky-1852479/Smirky%20Print.ttf') format('truetype');
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'SmirkyPrint', sans-serif; /* Apply the Smirky Print font */
+        }
+        .page3 {
+            background-color: #FFB6C1; /* light pink */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            position: relative;
+        }
+        h1 {
+            font-size: 4em;
+            color: white;
+            text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Black outline */
+            position: relative;
+            z-index: 1;
+        }
+        .looping-text, .emerging-text {
+            font-size: 2em;
+            white-space: nowrap;
+            position: absolute;
+        }
+        .looping-text {
+            color: #FF6666; /* light red color */
+            animation: loop 7s linear infinite; /* updated duration */
+        }
+        .emerging-text {
+            color: #FF6666; /* light red color */
+            animation: emerge 5s infinite;
+        }
+        .video-right {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 200px; /* Enlarge the video */
+            height: auto;
+        }
+        .video-left {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 200px; /* Enlarge the video */
+            height: auto;
+        }
+        .text-below-video {
+            color: white;
+            font-size: 15px;
+            position: absolute;
+            top: calc(57% + 25px); /* Positioning just below the video */
+            right: 7.5%;
+            transform: translateX(50%); /* Center align the text */
+        }
+        @keyframes loop {
+            0% { transform: translateX(100vw); } /* start off-screen to the right */
+            100% { transform: translateX(-100vw); } /* move off-screen to the left */
+        }
+        @keyframes emerge {
+            0% { bottom: -20px; opacity: 0; }
+            50% { bottom: 50%; opacity: 1; }
+            100% { bottom: 100%; opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page3">
+        <h1>ITS YOUR BIRTHDAYYYYYYY!!!!!</h1>
+        <div class="looping-text">YAAYYYYYYYYY!!!</div>
+        <div class="looping-text">YAAYYYYYYYYY!!!</div>
+        <div class="looping-text">YAAYYYYYYYYY!!!</div>
+        <div class="emerging-text">i love you<3 </div>
+        <div class="emerging-text">i love you<3 </div>
+        <div class="emerging-text">i love you<3 </div>
+        <div class="emerging-text">i love you<3 </div>
+        <video src="file:///C:/Users/Ujjwal%20Anand/Downloads/bomb%20billi.mp4" class="video-right" autoplay loop muted></video>
+        <div class="text-below-video">you rn</div>
+        <video src="file:///C:/Users/Ujjwal%20Anand/Downloads/paani%20billi.mp4" class="video-left" autoplay loop muted></video>
+    </div>
+    <script>
+        // Function to position elements at random places without overlapping
+        function positionRandomly(elements, heading) {
+            elements.forEach(element => {
+                let overlap;
+                do {
+                    overlap = false;
+                    const randomTop = Math.random() * 80; // Random top position within bounds
+                    const randomLeft = Math.random() * 80; // Random left position within bounds
+                    element.style.top = randomTop + '%';
+                    element.style.left = randomLeft + '%';
+                    
+                    // Check for overlap with heading
+                    const elementRect = element.getBoundingClientRect();
+                    const headingRect = heading.getBoundingClientRect();
+                    if (elementRect.top < headingRect.bottom && elementRect.bottom > headingRect.top &&
+                        elementRect.left < headingRect.right && elementRect.right > headingRect.left) {
+                        overlap = true;
+                    }
+                    
+                    // Check for overlap with other elements
+                    elements.forEach(otherElement => {
+                        if (element !== otherElement) {
+                            const otherRect = otherElement.getBoundingClientRect();
+                            if (elementRect.top < otherRect.bottom && elementRect.bottom > otherRect.top &&
+                                elementRect.left < otherRect.right && elementRect.right > otherRect.left) {
+                                overlap = true;
+                            }
+                        }
+                    });
+                } while (overlap);
+            });
+        }
+        
+        // Function to make elements blink randomly
+        function blinkRandomly(elements) {
+            elements.forEach(element => {
+                const blinkInterval = Math.random() * 3000 + 1000; // Random interval between 1s and 4s
+                setInterval(() => {
+                    element.style.visibility = element.style.visibility === 'hidden' ? 'visible' : 'hidden';
+                }, blinkInterval);
+            });
+        }
+        
+        // Select looping-text and emerging-text elements
+        const loopingTexts = document.querySelectorAll('.looping-text');
+        const emergingTexts = document.querySelectorAll('.emerging-text');
+        const heading = document.querySelector('h1');
+        
+        positionRandomly([...loopingTexts, ...emergingTexts], heading);
+        
+        // Re-position elements every 7 seconds
+        setInterval(() => {
+            positionRandomly([...loopingTexts, ...emergingTexts], heading);
+        }, 7000);
+        
+        // Make emerging-text elements blink randomly
+        blinkRandomly(emergingTexts);
+    </script>
+</body>
+</html>
