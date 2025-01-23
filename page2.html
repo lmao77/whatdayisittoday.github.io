@@ -46,21 +46,30 @@
             border-radius: 5px;
             background-color: #FF6347; /* red */
         }
-        .cat-image-left {
+        .cat-image-left, .cat-image-right {
             position: absolute;
-            left: 0;
             top: 50%;
             transform: translateY(-50%);
-            width: 400px; /* Enlarge the image */
-            height: auto;
+            width: 100%; /* Ensure image width fits within parent */
+            height: auto; /* Maintain aspect ratio */
+            max-width: 400px; /* Maximum image width for larger screens */
+        }
+        .cat-image-left {
+            left: 0;
         }
         .cat-image-right {
-            position: absolute;
             right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 400px; /* Enlarge the image */
-            height: auto;
+        }
+        /* Media query for mobile devices */
+        @media only screen and (max-width: 600px) {
+            h1 {
+                font-size: 2em; /* Reduce font size for mobile */
+                text-align: center;
+            }
+            .button {
+                font-size: 1em; /* Reduce button font size for mobile */
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
