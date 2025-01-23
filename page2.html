@@ -46,19 +46,16 @@
             border-radius: 5px;
             background-color: #FF6347; /* red */
         }
-        .cat-image-left, .cat-image-right {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
+        .cat-image-top, .cat-image-bottom {
             width: 100%; /* Ensure image width fits within parent */
             height: auto; /* Maintain aspect ratio */
             max-width: 400px; /* Maximum image width for larger screens */
         }
-        .cat-image-left {
-            left: 0;
+        .cat-image-top {
+            align-self: flex-start;
         }
-        .cat-image-right {
-            right: 0;
+        .cat-image-bottom {
+            align-self: flex-end;
         }
         /* Media query for mobile devices */
         @media only screen and (max-width: 600px) {
@@ -75,11 +72,11 @@
 </head>
 <body>
     <div class="page2">
-        <img src="https://raw.githubusercontent.com/lmao77/whatdayisittoday.github.io/refs/heads/main/images/bada%20aankh%20billa.jpg" alt="Image" class="cat-image-left">
+        <img src="https://raw.githubusercontent.com/lmao77/whatdayisittoday.github.io/refs/heads/main/images/bada%20aankh%20billa.jpg" alt="Image" class="cat-image-top">
         <div class="header">
             <h1>ARE YOU SURE?</h1>
         </div>
-        <img src="https://raw.githubusercontent.com/lmao77/whatdayisittoday.github.io/refs/heads/main/images/WhatsApp%20Image%202025-01-23%20at%2021.23.33_be9ac67c.jpg" alt="Image" class="cat-image-right">
+        <img src="https://raw.githubusercontent.com/lmao77/whatdayisittoday.github.io/refs/heads/main/images/WhatsApp%20Image%202025-01-23%20at%2021.23.33_be9ac67c.jpg" alt="Image" class="cat-image-bottom">
         <a href="page3.html" class="button">yes</a>
         <a href="page3.html" class="button">no</a>
     </div>
